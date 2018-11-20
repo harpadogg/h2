@@ -25,28 +25,50 @@ img { /* stylelint-disable-line */
 }
 
 .header {
-  z-index: 1;
-  height: 20vh;
-  margin: auto;
-  background-image: url("../img/header.jpg");
+  display: flex;
+  height: 40vh;
+  margin-bottom: 1.5em;
+  flex-direction: column;
+  background: url("../img/header.jpg") 90% 40%;
+  justify-content: center;
+  align-items: center;
 
   &__subtitle {
+    z-index: 2;
     color: #000;
+    text-transform: uppercase;
   }
 
   &__title {
+    z-index: 2;
     color: #000;
   }
 }
 
-.header.protection {
+.protection {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 2;
+  height: 40vh;
   background-color: rgba(255, 255, 255, 0.2);
+}
+
+.buttons {
+  display: flex;
+  margin-right: $gutter;
+  margin-left: $gutter;
+  text-align: center;
+  justify-content: space-between;
+
+  .button {
+    height: auto;
+    padding: 5px;
+    font-size: 1em;
+    background-color: $background-color;
+    border-radius: 5px;
+  }
 }
 
 .grid__row {
@@ -60,7 +82,15 @@ img { /* stylelint-disable-line */
   flex-direction: column;
 }
 
+.cards {
+  width: 100%;
+  margin-top: 1.5em;
+  margin-right: $gutter;
+  margin-left: $gutter;
+}
+
 .card {
+  width: 100%;
   background-color: $background-color;
 }
 
