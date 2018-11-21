@@ -16,8 +16,13 @@ html { /* stylelint-disable-line */
   overflow-x: hidden;
   overflow-y: scroll; // alltaf hafa y skrollbar
 
-  // font-family: $font-main;
+  font-family: $font-main;
   font-size: 16px;
+}
+
+main { /* stylelint-disable-line */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 img { /* stylelint-disable-line */
@@ -27,7 +32,7 @@ img { /* stylelint-disable-line */
 .header {
   display: flex;
   height: 40vh;
-  margin-bottom: 1.5em;
+  margin-bottom: 2em;
   flex-direction: column;
   background: url("../img/header.jpg") 90% 40%;
   justify-content: center;
@@ -35,13 +40,15 @@ img { /* stylelint-disable-line */
 
   &__subtitle {
     z-index: 2;
-    color: #000;
+    font-family: $font-title;
+    font-size: 1em;
     text-transform: uppercase;
   }
 
   &__title {
     z-index: 2;
-    color: #000;
+    font-family: $font-title;
+    font-size: 3em;
   }
 }
 
@@ -52,7 +59,7 @@ img { /* stylelint-disable-line */
   bottom: 0;
   left: 0;
   height: 40vh;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
 .buttons {
@@ -64,34 +71,128 @@ img { /* stylelint-disable-line */
 
   .button {
     height: auto;
-    padding: 5px;
-    font-size: 1em;
+    padding: 10px 20px;
+    font-family: $font-title;
+    font-size: 2em;
+    font-weight: bold;
     background-color: $background-color;
-    border-radius: 5px;
+    border-radius: 15px;
+  }
+}
+
+.button:hover {
+  background-color: $hover-color;
+}
+
+@media (min-width: 800px) {
+  .buttons {
+    display: block;
+    justify-content: none;
+  }
+
+  .button:nth-child(2) {
+    margin: 0 1.5em;
   }
 }
 
 .grid__row {
   display: flex;
   width: 100%;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
 }
 
 .grid__col {
-  flex-direction: column;
+  width: 100%;
 }
 
 .cards {
-  width: 100%;
-  margin-top: 1.5em;
   margin-right: $gutter;
+  margin-bottom: 2*$gutter;
   margin-left: $gutter;
 }
 
 .card {
-  width: 100%;
+  margin-top: 2em;
   background-color: $background-color;
+
+  &__title {
+    font-family: $font-title;
+    font-size: 2em;
+  }
+
+  &__subtitle {
+    font-family: $font-title;
+    font-size: 1em;
+  }
+
+  &__text {
+    padding: 10px;
+  }
+}
+
+@media (min-width: 800px) {
+  .grid__col {
+    width: 50%;
+  }
+
+  .grid__row {
+    flex-direction: row;
+  }
+
+  .cards {
+    margin-right: 0;
+  }
+
+  .card {
+    height: 95%;
+    margin-right: $gutter;
+  }
+}
+
+@media (min-width: 1200px) {
+  .header {
+    height: 20vh;
+
+    &__title {
+      font-size: 2em;
+    }
+  }
+
+  .protection {
+    height: 20vh;
+  }
+
+  .buttons {
+    .button {
+      font-size: 1.5em;
+    }
+  }
+
+  .grid__col {
+    width: 33.3333333%;
+  }
+
+  .cards {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .card {
+    margin-right: 0;
+  }
+}
+
+.card:hover {
+  background-color: $hover-color;
+}
+
+.card__image {
+  width: 100%;
+}
+
+.card__img {
+  width: 100%;
 }
 
 // TODO import
