@@ -106,7 +106,7 @@ img { /* stylelint-disable-line */
   width: 100%;
 }
 
-.cards {
+.list {
   margin-right: $gutter;
   margin-bottom: 2*$gutter;
   margin-left: $gutter;
@@ -146,7 +146,7 @@ img { /* stylelint-disable-line */
     }
   }
 
-  .cards {
+  .list {
     margin-right: 0;
   }
 
@@ -175,7 +175,7 @@ img { /* stylelint-disable-line */
     padding-left: 10px;
   }
 
-  .cards {
+  .list {
     margin-right: -10px;
     margin-left: -10px;
   }
