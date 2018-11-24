@@ -1,6 +1,6 @@
 import { empty } from './helpers';
 
-export default class List {
+export default class Lecture {
   constructor() {
     this.container = document.querySelector('.list');
     this.URL = '../lectures/json';
