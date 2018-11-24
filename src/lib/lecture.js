@@ -3,7 +3,7 @@ import { empty } from './helpers';
 export default class Lecture {
   constructor() {
     this.container = document.querySelector('.list');
-    this.URL = '../lectures/json';
+    this.URL = '../lectures.json';
   }
 
   loadLectures() {
