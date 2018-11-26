@@ -49,9 +49,11 @@ export default class List {
     cardTitle.className = 'card__title';
     cardTitle.appendChild(document.createTextNode(title));
 
-    divText.appendChild(subtitle, cardTitle);
+    divText.appendChild(subtitle);
+    divText.appendChild(cardTitle);
     divImage.appendChild(img);
-    divCard.appendChild(divImage, divText);
+    divCard.appendChild(divImage);
+    divCard.appendChild(divText);
     divCol.appendChild(divCard);
     divRow.appendChild(divCol);
     this.container.appendChild(divRow);
@@ -61,7 +63,7 @@ export default class List {
     this.loadLectures()
       .then((data) => {
         console.log(data);
-        this.showLectures(data.results);
+        this.showLectures(data.lectures);
       })
       .catch(() => {
         console.error('Villa');
