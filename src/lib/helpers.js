@@ -4,13 +4,14 @@ export function empty(element) {
   }
 }
 
-export function el(name, className, ...children) {
+export function el(name, className, textNode) {
   const element = document.createElement(name);
+  element.classList.add(className);
 
-  if (className) {
-    element.classList.add(className);
+  if (textNode) {
+    element.appendChild(document.createTextNode(textNode))
   }
-  if (Array.isArray(children)) {
+  /* if (Array.isArray(children)) {
     children.forEach((child) => {
       if (typeof child === 'string') {
         element.appendChild(document.createTextNode(child));
@@ -18,7 +19,7 @@ export function el(name, className, ...children) {
         element.appendChild(child);
       }
     });
-  }
+  } */
 
   return element;
 }
