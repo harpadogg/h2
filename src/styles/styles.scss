@@ -155,6 +155,10 @@ img { /* stylelint-disable-line */
     height: 95%;
     margin-right: $gutter;
   }
+
+  .card__image {
+    height: 74%;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -184,6 +188,10 @@ img { /* stylelint-disable-line */
   .card {
     margin-right: 0;
   }
+
+  .card__image {
+    height: 70%;
+  }
 }
 
 .card:hover {
@@ -192,6 +200,7 @@ img { /* stylelint-disable-line */
 
 .card__image {
   width: 100%;
+  // height: 70%;
 }
 
 .card__img {
