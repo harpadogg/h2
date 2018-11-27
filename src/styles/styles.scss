@@ -84,6 +84,16 @@ img { /* stylelint-disable-line */
   background-color: $hover-color;
 }
 
+.button--clicked {
+  height: auto;
+  padding: 10px 20px;
+  font-family: $font-title;
+  font-size: 2em;
+  font-weight: bold;
+  background-color: #2d2;
+  border-radius: 15px;
+}
+
 @media (min-width: 800px) {
   .buttons {
     display: block;
@@ -91,6 +101,10 @@ img { /* stylelint-disable-line */
   }
 
   .button:nth-child(2) {
+    margin: 0 1.5em;
+  }
+
+  .button--clicked:nth-child(2) {
     margin: 0 1.5em;
   }
 }
@@ -145,6 +159,10 @@ img { /* stylelint-disable-line */
     .button {
       font-size: 1em;
     }
+
+    .button--clicked {
+      font-size: 1em;
+    }
   }
 
   .list {
@@ -190,7 +208,8 @@ img { /* stylelint-disable-line */
   }
 
   .card__image {
-    height: 70%;
+    display: flex;
+    flex: 1;
   }
 }
 
@@ -199,7 +218,8 @@ img { /* stylelint-disable-line */
 }
 
 .card__image {
-  width: 100%;
+  display: flex;
+  flex: 1;
 }
 
 .card__img {

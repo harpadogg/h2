@@ -4,41 +4,35 @@ import Lecture from './lib/lecture';
 document.addEventListener('DOMContentLoaded', () => {
   const page = document.querySelector('body');
   const isLecturePage = page.classList.contains('lecture-page');
-  // const cardText = document.querySelector('.card');
   const button = document.querySelectorAll('.button');
-  // const isHTMLbtn = button.classList.contains('html');
 
   button.forEach(curr => curr.addEventListener('click', buttonClick));
 
-  // eslint-disable-next-line no-restricted-syntax
-  /* for (let item of page.querySelectorAll('.list')) {
-    const card = item.querySelector('.card');
-    card.addEventListener('click', cardClick);
-  } */
-
-  function cardClick(e) {
-    e.preventDefault();
-    console.log('card');
-  }
-
+  const list = new List();
   if (isLecturePage) {
     const lecture = new Lecture();
     lecture.load();
   } else {
-    const list = new List();
-    list.load();
-<<<<<<< HEAD
-    cardText.addEventListener('click', list.cardClick);
-=======
+    list.load([]);
   }
+
   function buttonClick(e) {
     e.preventDefault();
+    console.log('takki');
 
-    if ('.button html') {
-      console.log('takki');
-      const list = new List();
-      list.loadHTML();
+    const btn = e.target;
+    if (btn.classList[0] === 'button') {
+      btn.classList.replace('button', 'button--clicked');
+    } else {
+      btn.classList.replace('button--clicked', 'button');
     }
->>>>>>> 8335d995c759ab224faf70d1a62eb0ee06432ce7
+
+    const selectedButtons = document.querySelectorAll('.button--clicked');
+    const categories = [];
+    selectedButtons.forEach((selectedButton) => {
+      categories.push(selectedButton.innerHTML.toLowerCase());
+    });
+
+    list.load(categories);
   }
 });

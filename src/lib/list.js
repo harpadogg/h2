@@ -15,6 +15,13 @@ export default class List {
     }
   }
 
+  updateLectures(catArr, data) {
+    if (catArr.length === 0 || catArr.length === 3) {
+      return data;
+    }
+    return data.filter(item => catArr.indexOf(item.category) !== -1);
+  }
+
   loadLectures() {
     return fetch(this.URL)
       .then((res) => {
@@ -25,11 +32,12 @@ export default class List {
       });
   }
 
-  showLectures(data) {
+  showLectures(categories, data) {
+    const pData = this.updateLectures(categories, data);
     empty(this.container);
     const divRow = el('div', 'grid__row');
 
-    data.forEach((item) => {
+    pData.forEach((item) => {
       const divCol = el('div', 'grid__col');
       const divCard = el('div', 'card');
       const divImage = el('div', 'card__image');
@@ -52,13 +60,13 @@ export default class List {
     this.container.appendChild(divRow);
   }
 
-  load() {
+  load(categories) {
     this.loadLectures()
       .then((data) => {
-        this.showLectures(data.lectures);
+        this.showLectures(categories, data.lectures);
       })
-      .catch(() => {
-        console.error('Villa við sækja fyrirlestra');
+      .catch((e) => {
+        console.error(`Villa við sækja fyrirlestra ${e}`);
       });
 
     const savedData = window.localStorage.getItem(this.keyName);
