@@ -8,6 +8,13 @@ export default class List {
     this.URL = '../lectures.json';
   }
 
+  loadHTML() {
+    const isHTMLbtn = this.button.classList.contains('html');
+    if (isHTMLbtn) {
+      empty(this.container);
+    }
+  }
+
   loadLectures() {
     return fetch(this.URL)
       .then((res) => {

@@ -1,11 +1,14 @@
 import List from './lib/list';
 import Lecture from './lib/lecture';
-import { empty } from './lib/helpers';
 
 document.addEventListener('DOMContentLoaded', () => {
   const page = document.querySelector('body');
   const isLecturePage = page.classList.contains('lecture-page');
-  const cardText = document.querySelector('.card');
+  // const cardText = document.querySelector('.card');
+  const button = document.querySelectorAll('.button');
+  // const isHTMLbtn = button.classList.contains('html');
+
+  button.forEach(curr => curr.addEventListener('click', buttonClick));
 
   // eslint-disable-next-line no-restricted-syntax
   /* for (let item of page.querySelectorAll('.list')) {
@@ -13,20 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
     card.addEventListener('click', cardClick);
   } */
 
-  // eslint-disable-next-line no-restricted-syntax
-  for (let buttons of document.querySelectorAll('.buttons')) {
-    const button = buttons.querySelector('.button');
-    button.addEventListener('click', buttonClick);
-  }
-
   function cardClick(e) {
     e.preventDefault();
     console.log('card');
-  }
-
-  function buttonClick(e) {
-    e.preventDefault();
-    console.log('takki');
   }
 
   if (isLecturePage) {
@@ -35,6 +27,18 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     const list = new List();
     list.load();
+<<<<<<< HEAD
     cardText.addEventListener('click', list.cardClick);
+=======
+  }
+  function buttonClick(e) {
+    e.preventDefault();
+
+    if ('.button html') {
+      console.log('takki');
+      const list = new List();
+      list.loadHTML();
+    }
+>>>>>>> 8335d995c759ab224faf70d1a62eb0ee06432ce7
   }
 });
