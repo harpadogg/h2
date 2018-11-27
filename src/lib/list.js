@@ -31,21 +31,28 @@ export default class List {
 
     data.forEach((item) => {
       const divCol = el('div', 'grid__col');
-      const divCard = el('div', 'card');
+      const divCard = el('a', 'card');
+      divCard.setAttribute('href', `/fyrirlestur.html?slug=${item.slug}`);
       const divImage = el('div', 'card__image');
       const img = el('img', 'card__img');
       if (item.thumbnail) {
         img.setAttribute('src', item.thumbnail);
       }
+      const divBottom = el('div', 'card__bottom');
       const divText = el('div', 'card__text');
       const subtitle = el('h3', 'card__subtitle', item.category);
       const cardTitle = el('h2', 'card__title', item.title);
+      const divEmpty = el('div');
+      const divFinished = el('div', 'card__finished', '✓');
 
+      divEmpty.appendChild(divFinished);
       divText.appendChild(subtitle);
       divText.appendChild(cardTitle);
+      divBottom.appendChild(divText);
+      divBottom.appendChild(divEmpty);
       divImage.appendChild(img);
       divCard.appendChild(divImage);
-      divCard.appendChild(divText);
+      divCard.appendChild(divBottom);
       divCol.appendChild(divCard);
       divRow.appendChild(divCol);
     });

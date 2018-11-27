@@ -2,8 +2,9 @@ import { empty, el } from './helpers';
 
 export default class Lecture {
   constructor() {
-    this.container = document.querySelector('.list');
     this.URL = '../lectures.json';
+    this.HREF = document.location.href;
+    this.header = document.querySelector('.header');
   }
 
   loadLecture() {
@@ -17,28 +18,21 @@ export default class Lecture {
   }
 
   showLecture(data) {
-    empty(this.container);
+    // empty(this.container);
+    console.log(data);
     const divRow = el('div', 'grid__row');
 
-    data.forEach((item) => {
-      const divCol = el('div', 'grid__col');
-      const divCard = el('div', 'card');
-      const divImage = el('div', 'card__image');
-      const img = el('img', 'card__img');
-      if (item.thumbnail) {
-        img.setAttribute('src', item.thumbnail);
+    const img = new Image();
+    img.setAttribute('src', data.img);
+    this.header.appendChild(img);
+    
+    data.content.forEach((item) => {
+      switch (item.type) {
+        case 'youtube': console.log(`yt: ${item.data}`); break;
+        case 'text': console.log(`text: ${item.data}`); break;
+        case 'quote': console.log(`quote: ${item.data}`); break;
+        default: console.log('haltu kjafti');
       }
-      const divText = el('div', 'card__text');
-      const subtitle = el('h3', 'card__subtitle', item.category);
-      const cardTitle = el('h2', 'card__title', item.title);
-
-      divText.appendChild(subtitle);
-      divText.appendChild(cardTitle);
-      divImage.appendChild(img);
-      divCard.appendChild(divImage);
-      divCard.appendChild(divText);
-      divCol.appendChild(divCard);
-      divRow.appendChild(divCol);
     });
     this.container.appendChild(divRow);
   }
@@ -46,10 +40,15 @@ export default class Lecture {
   load() {
     this.loadLecture()
       .then((data) => {
-        this.showLecture(data.lectures);
+        const sluggo = this.HREF.split('slug=')[1];
+        data.lectures.forEach((item) => {
+          if (item.slug === sluggo) {
+            this.showLecture(item);
+          }
+        });
       })
-      .catch(() => {
-        console.error('Villa við sækja fyrirlestra');
+      .catch((e) => {
+        console.error(`Villa við sækja fyrirlestra ${e}`);
       });
 
     const savedData = window.localStorage.getItem(this.keyName);
