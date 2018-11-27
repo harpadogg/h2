@@ -9,7 +9,7 @@ export function el(name, className, textNode) {
   element.classList.add(className);
 
   if (textNode) {
-    element.appendChild(document.createTextNode(textNode))
+    element.appendChild(document.createTextNode(textNode));
   }
   /* if (Array.isArray(children)) {
     children.forEach((child) => {

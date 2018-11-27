@@ -35,6 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     const list = new List();
     list.load();
-    cardText.addEventListener('click', cardClick);
+    cardText.addEventListener('click', list.cardClick);
   }
 });
