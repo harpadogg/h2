@@ -37,6 +37,7 @@ export default class Lecture {
     this.headerTitle.appendChild(document.createTextNode(data.title));
 
     data.content.forEach((item) => {
+      let wrapper;
       let youtube;
       let text;
       let textArr;
@@ -51,9 +52,11 @@ export default class Lecture {
       let pre;
 
       switch (item.type) {
-        case 'youtube': youtube = el('iframe', 'lecture__video');
+        case 'youtube': wrapper = el('div', 'video__wrapper');
+          youtube = el('iframe', 'lecture__video');
           youtube.setAttribute('src', item.data);
-          this.main.appendChild(youtube); break;
+          wrapper.appendChild(youtube);
+          this.main.appendChild(wrapper); break;
 
         case 'text': textArr = item.data.split('\n');
           textArr.forEach((par) => {
