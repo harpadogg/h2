@@ -5,24 +5,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const page = document.querySelector('body');
   const isLecturePage = page.classList.contains('lecture-page');
   const button = document.querySelectorAll('.button');
-  // const isHTMLbtn = button.classList.contains('html');
 
   button.forEach(curr => curr.addEventListener('click', buttonClick));
+
+  const list = new List();
 
   if (isLecturePage) {
     const lecture = new Lecture();
     lecture.load();
   } else {
-    const list = new List();
-    list.load();
+    list.load([]);
   }
+
   function buttonClick(e) {
     e.preventDefault();
+    console.log('takki');
 
-    if ('.button html') {
-      console.log('takki');
-      const list = new List();
-      list.loadHTML();
+    const btn = e.target;
+    if (btn.classList[0] === 'button') {
+      btn.classList.replace('button', 'button--clicked');
+    } else {
+      btn.classList.replace('button--clicked', 'button');
     }
+
+    const selectedButtons = document.querySelectorAll('.button--clicked');
+    const categories = [];
+    selectedButtons.forEach((selectedButton) => {
+      categories.push(selectedButton.innerHTML.toLowerCase());
+    });
+
+    list.load(categories);
   }
 });

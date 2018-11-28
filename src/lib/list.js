@@ -6,13 +6,29 @@ export default class List {
     this.card = document.querySelector('.card');
     this.container = document.querySelector('.list');
     this.URL = '../lectures.json';
+    this.header = document.querySelector('.header');
+    this.headerSubtitle = document.querySelector('.header__subtitle');
+    this.headerTitle = document.querySelector('.header__title');
   }
 
-  loadHTML() {
-    const isHTMLbtn = this.button.classList.contains('html');
-    if (isHTMLbtn) {
-      empty(this.container);
+  insert() {
+    // const div = document.createElement('div');
+    // div.className = 'header__image';
+    // const img = document.createElement('img');
+    const img = new Image();
+    img.setAttribute('src', '../img/header.jpg');
+    img.className = 'header__img';
+    // div.appendChild(img);
+    this.header.appendChild(img);
+    this.header.appendChild(this.headerSubtitle);
+    this.header.appendChild(this.headerTitle);
+  }
+
+  updateLectures(catArr, data) {
+    if (catArr.length === 0 || catArr.length === 3) {
+      return data;
     }
+    return data.filter(item => catArr.indexOf(item.category) !== -1);
   }
 
   loadLectures() {
@@ -25,11 +41,13 @@ export default class List {
       });
   }
 
-  showLectures(data) {
+  showLectures(categories, data) {
+    this.insert();
+    const pData = this.updateLectures(categories, data);
     empty(this.container);
     const divRow = el('div', 'grid__row');
 
-    data.forEach((item) => {
+    pData.forEach((item) => {
       const divCol = el('div', 'grid__col');
       const divCard = el('a', 'card');
       divCard.setAttribute('href', `/fyrirlestur.html?slug=${item.slug}`);
@@ -59,13 +77,13 @@ export default class List {
     this.container.appendChild(divRow);
   }
 
-  load() {
+  load(categories) {
     this.loadLectures()
       .then((data) => {
-        this.showLectures(data.lectures);
+        this.showLectures(categories, data.lectures);
       })
-      .catch(() => {
-        console.error('Villa við sækja fyrirlestra');
+      .catch((e) => {
+        console.error(`Villa við sækja fyrirlestra ${e}`);
       });
 
     const savedData = window.localStorage.getItem(this.keyName);
