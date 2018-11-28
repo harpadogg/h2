@@ -6,8 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const isLecturePage = page.classList.contains('lecture-page');
   const button = document.querySelectorAll('.button');
 
-  button.forEach(curr => curr.addEventListener('click', buttonClick));
-
   const list = new List();
 
   if (isLecturePage) {
@@ -19,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function buttonClick(e) {
     e.preventDefault();
-    console.log('takki');
 
     const btn = e.target;
     if (btn.classList[0] === 'button') {
@@ -36,4 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     list.load(categories);
   }
+
+  button.forEach(curr => curr.addEventListener('click', buttonClick));
 });
