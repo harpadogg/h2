@@ -20,21 +20,25 @@ export default class Lecture {
   showLecture(data) {
     // empty(this.container);
     console.log(data);
-    const divRow = el('div', 'grid__row');
 
-    const img = new Image();
-    img.setAttribute('src', data.img);
-    this.header.appendChild(img);
+    if (data.image) {
+      const img = new Image();
+      img.setAttribute('src', `../${data.image}`);
+      this.header.appendChild(img);
+    }
     
     data.content.forEach((item) => {
       switch (item.type) {
         case 'youtube': console.log(`yt: ${item.data}`); break;
         case 'text': console.log(`text: ${item.data}`); break;
         case 'quote': console.log(`quote: ${item.data}`); break;
-        default: console.log('haltu kjafti');
+        case 'code': console.log(`code: ${item.data}`); break;
+        case 'image': console.log(`image: ${item.data}`); break;
+        case 'list': console.log(`list: ${item.data}`); break;
+        case 'heading': console.log(`heading: ${item.data}`); break;
+        default: console.error('vantar case'); 
       }
     });
-    this.container.appendChild(divRow);
   }
 
   load() {
