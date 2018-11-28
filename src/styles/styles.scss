@@ -141,6 +141,15 @@ img { /* stylelint-disable-line */
   margin-left: $gutter;
 }
 
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  background-color: $hover-color;
+}
+
 .card:link {
   margin-top: 2em;
   color: #000;
@@ -208,15 +217,6 @@ img { /* stylelint-disable-line */
     margin-top: 2em;
     margin-right: 0;
   }
-
-  .card {
-    // margin-bottom: $gutter;
-  }
-
-  .card__image {
-    flex: 1;
-    background-color: $background-color;
-  }
 }
 
 @media (min-width: 1200px) {
@@ -251,24 +251,29 @@ img { /* stylelint-disable-line */
   .card {
     margin-right: 0;
   }
-
-  .card__image {
-    display: flex;
-    flex: 1;
-  }
 }
 
-.card:hover {
+.card:link:hover {
   background-color: $hover-color;
 }
 
 .card__image {
   display: flex;
   flex: 1;
+  background-color: $background-color;
 }
 
 .card__img {
   width: 100%;
+}
+
+.lecture__button {
+  padding: 0;
+  margin: 0;
+  font-family: $font-title;
+  cursor: pointer;
+  background: none;
+  border: 0;
 }
 
 // TODO import
