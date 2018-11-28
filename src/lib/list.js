@@ -6,15 +6,23 @@ export default class List {
     this.card = document.querySelector('.card');
     this.container = document.querySelector('.list');
     this.URL = '../lectures.json';
+    this.header = document.querySelector('.header');
+    this.headerSubtitle = document.querySelector('.header__subtitle');
+    this.headerTitle = document.querySelector('.header__title');
   }
 
-  showHeader() {
-    const img = new Image(); // document.createElement('div')
+  insert() {
+    // const div = document.createElement('div');
+    // div.className = 'header__image';
+    // const img = document.createElement('img');
+    const img = new Image();
     img.setAttribute('src', '../img/header.jpg');
     img.className = 'header__img';
+    // div.appendChild(img);
     this.header.appendChild(img);
+    this.header.appendChild(this.headerSubtitle);
+    this.header.appendChild(this.headerTitle);
   }
-  // HVERNIG GET ÉG KALLAÐ Á ÞETTA FALL????? HVAÐ ER AÐ ÞVÍ??
 
   updateLectures(catArr, data) {
     if (catArr.length === 0 || catArr.length === 3) {
@@ -34,6 +42,7 @@ export default class List {
   }
 
   showLectures(categories, data) {
+    this.insert();
     const pData = this.updateLectures(categories, data);
     empty(this.container);
     const divRow = el('div', 'grid__row');

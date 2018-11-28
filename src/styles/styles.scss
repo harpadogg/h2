@@ -34,12 +34,12 @@ img { /* stylelint-disable-line */
   height: 40vh;
   margin-bottom: 2em;
   flex-direction: column;
-  // background: url("../img/header.jpg") 90% 40%;
   justify-content: center;
   align-items: center;
 
   &__subtitle {
     z-index: 2;
+    display: flex;
     font-family: $font-title;
     font-size: 1em;
     text-transform: uppercase;
@@ -47,8 +47,16 @@ img { /* stylelint-disable-line */
 
   &__title {
     z-index: 2;
+    display: flex;
     font-family: $font-title;
     font-size: 3em;
+  }
+
+  &__img {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 40vh;
   }
 }
 
@@ -58,6 +66,7 @@ img { /* stylelint-disable-line */
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: 2;
   height: 40vh;
   background-color: rgba(255, 255, 255, 0.6);
 }
@@ -185,6 +194,10 @@ img { /* stylelint-disable-line */
 
     &__title {
       font-size: 2em;
+    }
+
+    &__img {
+      height: 20vh;
     }
   }
 
