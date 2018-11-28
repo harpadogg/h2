@@ -79,6 +79,7 @@ img { /* stylelint-disable-line */
 .buttons {
   display: flex;
   margin-right: $gutter;
+  margin-bottom: $gutter;
   margin-left: $gutter;
   text-align: center;
   justify-content: space-between;
@@ -132,10 +133,10 @@ img { /* stylelint-disable-line */
 
 .grid__col {
   width: 100%;
+  margin-bottom: $gutter;
 }
 
 .list {
-  margin-top: 2em;
   margin-right: $gutter;
   margin-bottom: 2*$gutter;
   margin-left: $gutter;
@@ -143,6 +144,8 @@ img { /* stylelint-disable-line */
 
 .card {
   display: flex;
+  height: 100%;
+  margin-bottom: 20px;
   flex-direction: column;
 }
 
@@ -151,7 +154,7 @@ img { /* stylelint-disable-line */
 }
 
 .card:link {
-  margin-top: 2em;
+  // margin-top: 2em;
   color: #000;
   text-decoration: none;
   background-color: $background-color;
@@ -184,6 +187,7 @@ img { /* stylelint-disable-line */
 
 .card__tickbox {
   display: flex;
+  color: #2d2;
 }
 
 .card__finished {
@@ -214,8 +218,12 @@ img { /* stylelint-disable-line */
   }
 
   .list {
-    margin-top: 2em;
     margin-right: 0;
+  }
+
+  .card__image {
+    display: flex;
+    height: 70%;
   }
 }
 
@@ -238,14 +246,6 @@ img { /* stylelint-disable-line */
 
   .grid__col {
     width: 33.3333333%;
-    padding-right: 10px;
-    padding-left: 10px;
-  }
-
-  .list {
-    margin-top: 2em;
-    margin-right: -10px;
-    margin-left: -10px;
   }
 
   .card {
@@ -271,9 +271,6 @@ img { /* stylelint-disable-line */
   padding: 0;
   margin: 0;
   font-family: $font-title;
-  cursor: pointer;
   background: none;
   border: 0;
 }
-
-// TODO import
