@@ -8,12 +8,13 @@ export default class List {
     this.URL = '../lectures.json';
   }
 
-  loadHTML() {
-    const isHTMLbtn = this.button.classList.contains('html');
-    if (isHTMLbtn) {
-      empty(this.container);
-    }
+  showHeader() {
+    const img = new Image(); // document.createElement('div')
+    img.setAttribute('src', '../img/header.jpg');
+    img.className = 'header__img';
+    this.header.appendChild(img);
   }
+  // HVERNIG GET ÉG KALLAÐ Á ÞETTA FALL????? HVAÐ ER AÐ ÞVÍ??
 
   updateLectures(catArr, data) {
     if (catArr.length === 0 || catArr.length === 3) {
