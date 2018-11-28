@@ -135,24 +135,30 @@ img { /* stylelint-disable-line */
   margin-left: $gutter;
 }
 
-.card {
+.card:link {
   margin-top: 2em;
+  color: #000;
+  text-decoration: none;
   background-color: $background-color;
+}
 
-  &__title {
-    font-family: $font-title;
-    font-size: 2em;
-  }
+.card:visited {
+  color: #000;
+}
 
-  &__subtitle {
-    font-family: $font-title;
-    font-size: 1em;
-    text-transform: uppercase;
-  }
+.card__title {
+  font-family: $font-title;
+  font-size: 2em;
+}
 
-  &__text {
-    padding: 10px;
-  }
+.card__subtitle {
+  font-family: $font-title;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+.card__text {
+  padding: 10px;
 }
 
 @media (min-width: 800px) {
