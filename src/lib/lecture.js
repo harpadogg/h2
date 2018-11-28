@@ -6,6 +6,8 @@ export default class Lecture {
     this.HREF = document.location.href;
     this.header = document.querySelector('.header');
     this.main = document.querySelector('main');
+    this.subtitle = document.querySelector('.header__subtitle');
+    this.headerTitle = document.querySelector('.header__title');
   }
 
   loadLecture() {
@@ -20,6 +22,7 @@ export default class Lecture {
 
   showLecture(data) {
     empty(this.main);
+    // eslint-disable-next-line no-console
     console.log(data);
 
     if (data.image) {
@@ -28,7 +31,9 @@ export default class Lecture {
       img.className = 'header__img';
       this.header.appendChild(img);
     }
-    
+    this.subtitle.appendChild(document.createTextNode(data.category));
+    this.headerTitle.appendChild(document.createTextNode(data.title));
+
     data.content.forEach((item) => {
       let youtube;
       let text;
@@ -37,6 +42,9 @@ export default class Lecture {
       let image;
       let list;
       let heading;
+      let attribute;
+      let figImg;
+      let figCaption;
 
       switch (item.type) {
         case 'youtube': youtube = el('iframe', 'lecure__video');
@@ -45,11 +53,18 @@ export default class Lecture {
         case 'text': text = el('p', 'lecture__text', item.data);
           this.main.appendChild(text); break;
         case 'quote': quote = el('blockquote', 'lecture__quote', item.data);
+          attribute = el('cite', 'quote__cite', item.attribute);
+          quote.appendChild(attribute);
           this.main.appendChild(quote); break;
         case 'code': code = el('code', 'lecture__code', item.data);
           this.main.appendChild(code); break;
-        case 'image': image = el('img', 'lecture__image'); image.setAttribute('src', item.data);
-          this.main.appendChild(image); break;
+        case 'image': figImg = el('figure', 'figure');
+          image = el('img', 'lecture__image');
+          image.setAttribute('src', item.data);
+          figCaption = el('figcaption', 'image__caption', item.caption);
+          figImg.appendChild(image);
+          figImg.appendChild(figCaption);
+          this.main.appendChild(figImg); break;
         case 'list': list = el('ul', 'lecture__list');
           item.data.forEach((litem) => {
             const listItem = el('li', '.lecture__litem', litem);
