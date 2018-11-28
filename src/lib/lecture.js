@@ -8,7 +8,7 @@ export default class Lecture {
     this.main = document.querySelector('main');
     this.subtitle = document.querySelector('.header__subtitle');
     this.headerTitle = document.querySelector('.header__title');
-    this.footer = document.querySelector('.lecture__footer')
+    this.footer = document.querySelector('.lecture__footer');
   }
 
   loadLecture() {
@@ -23,8 +23,6 @@ export default class Lecture {
 
   showLecture(data) {
     empty(this.main);
-    // eslint-disable-next-line no-console
-    console.log(data);
 
     if (data.image) {
       const img = new Image();
