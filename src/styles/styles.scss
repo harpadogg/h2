@@ -29,10 +29,6 @@ img { /* stylelint-disable-line */
   max-width: 100%;
 }
 
-.lecture__text {
-  font-family: $font-main;
-}
-
 .header {
   display: flex;
   height: 40vh;
@@ -267,13 +263,87 @@ img { /* stylelint-disable-line */
   width: 100%;
 }
 
+.lecture__main {
+  margin-right: 17%;
+  margin-left: 17%;
+}
+
+.lecture-page {
+  padding-right: $gutter;
+  padding-left: $gutter;
+}
+
+.lecture__video {
+  width: 96.6vh;
+  height: 59vh;
+  margin-bottom: $gutter;
+}
+
+.lecture__text {
+  margin-bottom: $gutter;
+}
+
+.lecture__quote {
+  display: flex;
+  padding: $gutter;
+  margin-bottom: $gutter;
+  flex-direction: column;
+  background-color: $background-color;
+}
+
+.quote__cite {
+  padding-top: $gutter;
+}
+
+.figure {
+  margin-bottom: $gutter;
+
+  .lecture__image {
+    width: 100%;
+  }
+}
+
+.lecture__heading {
+  margin-top: $gutter;
+  margin-bottom: $gutter;
+  font-family: $font-title;
+}
+
+.lecture__pre {
+  margin-bottom: $gutter;
+}
+
+.lecture__list {
+  margin-bottom: $gutter;
+}
+
+.lecture__litem {
+  margin-bottom: $gutter;
+}
+
+.lecture__footer {
+  display: flex;
+  margin-top: 2*$gutter;
+  margin-bottom: 2*$gutter;
+  flex-direction: column;
+  align-items: center;
+}
+
 .lecture__button {
+  display: flex;
   padding: 0;
   margin: 0;
   font-family: $font-title;
+  font-size: 1em;
   cursor: pointer;
   background: none;
   border: 0;
 }
 
-// TODO import
+.lecture__link {
+  display: flex;
+  margin-top: $gutter;
+  font-family: $font-title;
+  color: #000;
+  text-decoration: none;
+}

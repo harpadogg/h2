@@ -8,6 +8,7 @@ export default class Lecture {
     this.main = document.querySelector('main');
     this.subtitle = document.querySelector('.header__subtitle');
     this.headerTitle = document.querySelector('.header__title');
+    this.footer = document.querySelector('.lecture__footer')
   }
 
   loadLecture() {
@@ -31,7 +32,7 @@ export default class Lecture {
       img.className = 'header__img';
       this.header.appendChild(img);
     }
-    
+
     this.subtitle.appendChild(document.createTextNode(data.category));
     this.headerTitle.appendChild(document.createTextNode(data.title));
 
@@ -50,7 +51,7 @@ export default class Lecture {
       let pre;
 
       switch (item.type) {
-        case 'youtube': youtube = el('iframe', 'lecure__video');
+        case 'youtube': youtube = el('iframe', 'lecture__video');
           youtube.setAttribute('src', item.data);
           this.main.appendChild(youtube); break;
 
@@ -66,7 +67,7 @@ export default class Lecture {
           this.main.appendChild(quote); break;
 
         case 'code': code = el('code', 'lecture__code', item.data);
-          pre = el('pre');
+          pre = el('pre', 'lecture__pre');
           pre.appendChild(code);
           this.main.appendChild(pre); break;
 
@@ -80,7 +81,7 @@ export default class Lecture {
 
         case 'list': list = el('ul', 'lecture__list');
           item.data.forEach((litem) => {
-            const listItem = el('li', '.lecture__litem', litem);
+            const listItem = el('li', 'lecture__litem', litem);
             list.appendChild(listItem);
           });
           this.main.appendChild(list); break;
@@ -91,13 +92,12 @@ export default class Lecture {
         default: console.error('vantar case');
       }
     });
-    const footer = el('footer', 'lecture__footer')
+
     const finish = el('button', 'lecture__button', 'Klára fyrirlestur');
-    footer.appendChild(finish);
+    this.footer.appendChild(finish);
     const index = el('a', 'lecture__link', 'Til baka');
     index.setAttribute('href', 'index.html');
-    footer.appendChild(index);
-    this.main.appendChild(footer);
+    this.footer.appendChild(index);
   }
 
   load() {
