@@ -28,7 +28,7 @@ export default class Lecture {
       img.className = 'header__img';
       this.header.appendChild(img);
     }
-    
+
     data.content.forEach((item) => {
       let youtube;
       let text;

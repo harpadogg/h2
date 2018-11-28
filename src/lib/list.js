@@ -12,13 +12,9 @@ export default class List {
   }
 
   insert() {
-    // const div = document.createElement('div');
-    // div.className = 'header__image';
-    // const img = document.createElement('img');
     const img = new Image();
     img.setAttribute('src', '../img/header.jpg');
     img.className = 'header__img';
-    // div.appendChild(img);
     this.header.appendChild(img);
     this.header.appendChild(this.headerSubtitle);
     this.header.appendChild(this.headerTitle);
@@ -60,7 +56,7 @@ export default class List {
       const divText = el('div', 'card__text');
       const subtitle = el('h3', 'card__subtitle', item.category);
       const cardTitle = el('h2', 'card__title', item.title);
-      const divEmpty = el('div');
+      const divEmpty = el('div', 'card__tickbox');
       const divFinished = el('div', 'card__finished', '✓');
 
       divEmpty.appendChild(divFinished);

@@ -29,6 +29,10 @@ img { /* stylelint-disable-line */
   max-width: 100%;
 }
 
+.lecture__text {
+  font-family: $font-main;
+}
+
 .header {
   display: flex;
   height: 40vh;
@@ -36,6 +40,7 @@ img { /* stylelint-disable-line */
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #999;
 
   &__subtitle {
     z-index: 2;
@@ -130,6 +135,7 @@ img { /* stylelint-disable-line */
 }
 
 .list {
+  margin-top: 2em;
   margin-right: $gutter;
   margin-bottom: 2*$gutter;
   margin-left: $gutter;
@@ -158,12 +164,30 @@ img { /* stylelint-disable-line */
 }
 
 .card__text {
+  flex: 1;
   padding: 10px;
+  background-color: $background-color;
+}
+
+.card__bottom {
+  display: flex;
+}
+
+.card__tickbox {
+  display: flex;
+}
+
+.card__finished {
+  display: flex;
+  display: none;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 800px) {
   .grid__col {
     width: 50%;
+    padding-right: $gutter;
   }
 
   .grid__row {
@@ -181,16 +205,17 @@ img { /* stylelint-disable-line */
   }
 
   .list {
+    margin-top: 2em;
     margin-right: 0;
   }
 
   .card {
-    height: 95%;
-    margin-right: $gutter;
+    // margin-bottom: $gutter;
   }
 
   .card__image {
-    height: 74%;
+    flex: 1;
+    background-color: $background-color;
   }
 }
 
@@ -218,6 +243,7 @@ img { /* stylelint-disable-line */
   }
 
   .list {
+    margin-top: 2em;
     margin-right: -10px;
     margin-left: -10px;
   }
