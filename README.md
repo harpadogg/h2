@@ -1,14 +1,18 @@
 # Hópverkefni 2
 
-Verkefnið fólst í því að smíða prótótýpu af fyrirlestravef fyrir vefforritun. Gefin voru gögn sem voru unnin eru uppúr námsefni vetrarins. 
+Þetta verkefni fólst í því að smíða prótótýpu af fyrirlestravef fyrir vefforritun 1. Gefin voru gögn sem voru unnin uppúr námsefni vetrarins. 
 
 ## Síður
 
-Allur html kóði fyrir utan haus og filter-takka er búinn til með JavaScript með ajax-kalli í `lectures.json`. List.js heldur utan um kóða fyrir forsíðu og lecture.js heldur utan um kóða fyrir fyrirlestrasíður. Við bættum einnig við storage.js sem heldur utan um virkni fyrir localStorage. Auk þess erum við með index.js sem sér um keyrslu síðunnar og virkni takka og helpers.js heldur utan um hjálparföll. List.js, lecture.js, storage.js og helpers.js er að finna í `src` undir `lib` og index.js er í rót verkefnisins. 
+Allur html kóði fyrir utan haus og filter-takka á forsíðu er búinn til með JavaScript með AJAX-kalli í `lectures.json`. 
+
+List.js heldur utan um kóða fyrir forsíðu og lecture.js heldur utan um kóða fyrir fyrirlestrasíður. Við bættum einnig við storage.js sem heldur utan um virkni fyrir localStorage. Auk þess erum við með index.js sem sér um keyrslu síðunnar og virkni takka og helpers.js heldur utan um hjálparföll. 
+
+List.js, lecture.js, storage.js og helpers.js er að finna í `src` undir `lib` og index.js er í rót verkefnisins. 
 
 Allar myndir sem eru á síðunni eru undir möppunni 'img'.
 
-Við skrifuðum .scss eina scss skrá sem heldur utan um útlit fyrir forsíðu og fyrirlestrasíður og config.scss heldur utan um beytur sem við erum að nota mikið í scss. 
+Við skrifuðum allt .scss eina scss skrá sem heldur utan um útlit fyrir forsíðu og fyrirlestrasíður og config.scss heldur utan um breytur sem við notum mikið í scss-inu. 
 
 Allur scss kóðinn þýðist svo yfir í styles.css við keyrslu.
 
@@ -39,7 +43,7 @@ Við bættum síðan við
 
 sem við bættum við í tólin hér fyrir ofan. Við erum að keyra rollup og babel með browser-sync með skipuninni `npm run dev`.
 
-Til að keyra verkefni þarf að setja upp `broswer-sync` auk annarra script-a í `package.json`. 
+Til að keyra verkefni keyrist rétt þarf að keyra `broswer-sync` með `npm run dev` auk annarra script-a í `package.json`. 
 
 ## Hópavinna
 
@@ -55,23 +59,4 @@ Til að keyra verkefni þarf að setja upp `broswer-sync` auk annarra script-a �
 
 Við lögðum mjög hart að okkur við vinnsluna á þessu verkefni og erum mjög glaðar að hafa komið því nokkuð þokkalega saman. Það hefði verið ágætt að hafa aðeins meiri tíma til að fínpússa css-ið örlítið en það er samt í heildina litið alveg ágætt. 
 
-------------------------------------
-
-## Lýsing á verkefni
-
-`README.md` skrá skal vera í rót verkefnis og innihalda:
-
-* Upplýsingar um hvernig keyra skuli verkefnið
-* Lýsingu á uppsetningu verkefnis, hvernig því er skipt í möppur, hvernig CSS og JavaScript er skipulagt og fleira sem á við
-* Upplýsingar um alla sem unnu verkefni
-* Leyfilegt er að halda eftir þessari verkefnalýsingu en hún skal þá koma _á eftir_ ykkar lýsingu
-
-## Skil
-
-Einn aðili úr hóp skal skila fyrir hönd allra og skila skal undir „Verkefni og hlutaprófa“ á Uglu í seinasta lagi fyrir lok dags fimmtudaginn 29. nóvember 2018, seinustu dæmatímar eru þann fimmtudag.
-
-Skil skulu innihalda:
-
-* Nöfn allra í hóp ásamt notendanafni
-* Slóð á GitHub repo fyrir verkefni, og dæmatímakennurum skal hafa verið boðið í repo ([sjá leiðbeiningar](https://help.github.com/articles/inviting-collaborators-to-a-personal-repository/)). Notendanöfn þeirra eru `arnar44`, `gorri4`, `mimiqkz`, `hinriksnaer`, `gunkol`, `freyrdanielsson` og `osk`
-* Slóð á verkefnið keyrandi á vefnum
+Það virðist vera smá böggur (er stundum til staðar og stundum ekki) þegar maður bætir eða tekur `slug` fyrirlesturs út úr localStorage. Stundum þarf að ýta nokkrum sinnum á takkann til að hann haldist inni. Annars birtist hann í augnablik inni í loacalStorage og hverfur svo. Við skoðuðum þetta í lengri tíma þ.á.m. með hjálp dæmatímakennara sem skildi ekki heldur hvers vegna þetta var að gerast. Ath. böggurinn var ekki til staðar þegar verkefninu er skilað. 
