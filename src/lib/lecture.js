@@ -1,5 +1,5 @@
 import { empty, el } from './helpers';
-import { save, clear } from './storage';
+import { load, save } from './storage';
 
 export default class Lecture {
   constructor() {
@@ -15,17 +15,18 @@ export default class Lecture {
   onClick(e) {
     e.preventDefault();
     const sluggo = document.location.href.split('slug=')[1];
-
-    this.finish = document.querySelector('.lecture__button');
-    if (this.finish.classList.contains('finished')) {
-      this.finish.classList.remove('finished');
-      this.finish.textContent = 'Klára fyrirlestur';
-      clear(sluggo);
-    } else {
-      this.finish.classList.add('finished');
-      this.finish.textContent = 'Fyrirlestur kláraður';
-      save(sluggo);
-    }
+    this.finBut = document.querySelector('.lecture__button');
+    save(sluggo);
+    const finished = load();
+    let ticked;
+    finished.forEach((finish) => {
+      ticked = (sluggo === finish) ? 'lecture__button' : 'lecture__button--finished';
+      if (ticked === 'lecture__button--finished') {
+        this.finBut.textContent = 'Klára fyrirlestur';
+      } else {
+        this.finBut.textContent = 'Fyrirlestur kláraður';
+      }
+    });
   }
 
   loadLecture() {
@@ -110,12 +111,19 @@ export default class Lecture {
         default: console.error('vantar case');
       }
     });
-    const finish = el('button', 'lecture__button', 'Klára fyrirlestur');
-    this.footer.appendChild(finish);
+    const sluggo = document.location.href.split('slug=')[1];
+    let lecFinish = el('button', 'lecture__button', 'Klára fyrirlestur');
+    const finished = load();
+    finished.forEach((finish) => {
+      if (sluggo === finish) {
+        lecFinish = el('button', 'lecture__button--finished', 'Fyrirlestur kláraður');
+      }
+    });
+    this.footer.appendChild(lecFinish);
     const index = el('a', 'lecture__link', 'Til baka');
     index.setAttribute('href', 'index.html');
     this.footer.appendChild(index);
-    finish.addEventListener('click', this.onClick); // fyrir storage
+    lecFinish.addEventListener('click', this.onClick); // fyrir storage
   }
 
   load() {
