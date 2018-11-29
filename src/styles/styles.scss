@@ -386,6 +386,10 @@ img { /* stylelint-disable-line */
   border: 0;
 }
 
+.finished {
+  color: #2d2;
+}
+
 .lecture__link {
   display: flex;
   margin-top: $gutter;

@@ -17,16 +17,13 @@ export default class Lecture {
     const sluggo = document.location.href.split('slug=')[1];
     this.finBut = document.querySelector('.lecture__button');
     save(sluggo);
-    const finished = load();
-    let ticked;
-    finished.forEach((finish) => {
-      ticked = (sluggo === finish) ? 'lecture__button' : 'lecture__button--finished';
-      if (ticked === 'lecture__button--finished') {
-        this.finBut.textContent = 'Klára fyrirlestur';
-      } else {
-        this.finBut.textContent = 'Fyrirlestur kláraður';
-      }
-    });
+    if (this.finBut.classList.contains('finished')) {
+      this.finBut.classList.remove('finished');
+      this.finBut.textContent = 'Klára fyrirlestur';
+    } else {
+      this.finBut.classList.add('finished');
+      this.finBut.textContent = 'Fyrirlestur kláraður';
+    }
   }
 
   loadLecture() {
@@ -116,7 +113,8 @@ export default class Lecture {
     const finished = load();
     finished.forEach((finish) => {
       if (sluggo === finish) {
-        lecFinish = el('button', 'lecture__button--finished', 'Fyrirlestur kláraður');
+        lecFinish = el('button', 'lecture__button', 'Fyrirlestur kláraður');
+        lecFinish.classList.add('finished');
       }
     });
     this.footer.appendChild(lecFinish);
