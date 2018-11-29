@@ -150,7 +150,6 @@ img { /* stylelint-disable-line */
 }
 
 .card:link {
-  // margin-top: 2em;
   color: #000;
   text-decoration: none;
   background-color: $background-color;
@@ -188,9 +187,12 @@ img { /* stylelint-disable-line */
 
 .card__finished {
   display: flex;
-  display: none;
   justify-content: center;
   align-items: center;
+}
+
+.card__finished--hidden {
+  display: none;
 }
 
 @media (min-width: 800px) {
@@ -371,6 +373,10 @@ img { /* stylelint-disable-line */
   cursor: pointer;
   background: none;
   border: 0;
+}
+
+.finished {
+  color: #2d2;
 }
 
 .lecture__link {

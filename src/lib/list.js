@@ -1,4 +1,5 @@
 import { empty, el } from './helpers';
+import { load } from './storage';
 
 export default class List {
   constructor() {
@@ -57,7 +58,7 @@ export default class List {
       const subtitle = el('h3', 'card__subtitle', item.category);
       const cardTitle = el('h2', 'card__title', item.title);
       const divEmpty = el('div', 'card__tickbox');
-      const divFinished = el('div', 'card__finished', '✓');
+      const divFinished = el('div', 'card__finished--hidden', '✓');
 
       divEmpty.appendChild(divFinished);
       divText.appendChild(subtitle);

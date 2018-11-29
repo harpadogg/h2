@@ -25,14 +25,18 @@ export function load() {
  */
 export function save(slug) {
   const finished = load();
-
-  finished.push({ slug });
+  finished.push(slug);
+  
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(finished));
 }
 
 /**
  * Hreinsa alla fyrirlestra úr localStorage
  */
-export function clear() {
+export function clear(slug) {
+  const finished = load();
+
+  finished.splice(finished.indexOf(slug), 1);
   localStorage.removeItem(LOCALSTORAGE_KEY);
+  localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(finished));
 }

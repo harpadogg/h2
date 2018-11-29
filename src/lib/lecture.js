@@ -1,4 +1,5 @@
 import { empty, el } from './helpers';
+import { save, clear } from './storage';
 
 export default class Lecture {
   constructor() {
@@ -8,9 +9,23 @@ export default class Lecture {
     this.main = document.querySelector('main');
     this.subtitle = document.querySelector('.header__subtitle');
     this.headerTitle = document.querySelector('.header__title');
-    // this.finishButton = document.querySelector('.lecture__button'); // fyrir storage
-    // this.finishButton.addEventListener('click', save); // fyrir storage
     this.footer = document.querySelector('.lecture__footer');
+  }
+
+  onClick(e) {
+    e.preventDefault();
+    const sluggo = document.location.href.split('slug=')[1];
+
+    this.finish = document.querySelector('.lecture__button');
+    if (this.finish.classList.contains('finished')) {
+      this.finish.classList.remove('finished');
+      this.finish.textContent = 'Klára fyrirlestur';
+      clear(sluggo);
+    } else {
+      this.finish.classList.add('finished');
+      this.finish.textContent = 'Fyrirlestur kláraður';
+      save(sluggo);
+    }
   }
 
   loadLecture() {
@@ -95,16 +110,12 @@ export default class Lecture {
         default: console.error('vantar case');
       }
     });
-<<<<<<< HEAD
-    const footer = el('footer', 'lecture__footer');
-=======
-
->>>>>>> f9df9bdfbd472fdf0b14f9ba2c40ad16b028a5fe
-    const finish = el('button', 'lecture__button', 'Klára fyrirlestur');
+    const finish = el('button', 'lecture__button', 'Klára fyrirlestur')
     this.footer.appendChild(finish);
     const index = el('a', 'lecture__link', 'Til baka');
     index.setAttribute('href', 'index.html');
     this.footer.appendChild(index);
+    finish.addEventListener('click', this.onClick); // fyrir storage
   }
 
   load() {
