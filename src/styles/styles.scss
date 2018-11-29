@@ -15,15 +15,15 @@ html { /* stylelint-disable-line */
   box-sizing: border-box;
   overflow-x: hidden;
   overflow-y: scroll; // alltaf hafa y skrollbar
-
   font-family: $font-main;
   font-size: 16px;
+  transition: background-color $transition;
 }
 
 main { /* stylelint-disable-line */
   max-width: 1200px;
   margin: 0 auto;
-  transition: background-color 300ms ease-in-out;
+  transition: background-color $transition;
 }
 
 img { /* stylelint-disable-line */

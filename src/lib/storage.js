@@ -26,7 +26,7 @@ export function load() {
 export function save(slug) {
   const finished = load();
   finished.push(slug);
-  
+
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(finished));
 }
 
