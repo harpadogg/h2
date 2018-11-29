@@ -17,13 +17,11 @@ html { /* stylelint-disable-line */
   overflow-y: scroll; // alltaf hafa y skrollbar
   font-family: $font-main;
   font-size: 16px;
-  transition: background-color $transition;
 }
 
 main { /* stylelint-disable-line */
   max-width: 1200px;
   margin: 0 auto;
-  transition: background-color $transition;
 }
 
 img { /* stylelint-disable-line */
@@ -89,6 +87,7 @@ img { /* stylelint-disable-line */
     font-weight: bold;
     background-color: $background-color;
     border-radius: 15px;
+    transition: background-color 300ms ease-in-out;
   }
 }
 
@@ -144,6 +143,7 @@ img { /* stylelint-disable-line */
   height: 100%;
   margin-bottom: 20px;
   flex-direction: column;
+  background-color: $background-color;
   transition: background-color 300ms ease-in-out;
 
   &:hover {
@@ -245,6 +245,11 @@ img { /* stylelint-disable-line */
   .protection {
     height: 20vh;
   }
+
+  /* .list {
+    margin-right: 0;
+    margin-left: 0;
+  } */
 
   .grid__col {
     width: 33.3333333%;
