@@ -29,10 +29,6 @@ img { /* stylelint-disable-line */
   max-width: 100%;
 }
 
-.lecture__text {
-  font-family: $font-main;
-}
-
 .header {
   display: flex;
   height: 40vh;
@@ -267,10 +263,120 @@ img { /* stylelint-disable-line */
   width: 100%;
 }
 
+@media (min-width: 800px) {
+  .lecture__main {
+    margin-right: 17%;
+    margin-left: 17%;
+  }
+}
+
+@media (min-width: 1250px) {
+  .lecture__main {
+    margin-right: 18.5%;
+    margin-left: 18.5%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .lecture__main {
+    margin-right: 21.5%;
+    margin-left: 21.5%;
+  }
+}
+
+@media (min-width: 1500px) {
+  .lecture__main {
+    margin-right: 23%;
+    margin-left: 23%;
+  }
+}
+
+.lecture-page {
+  padding-right: $gutter;
+  padding-left: $gutter;
+}
+
+.video__wrapper {
+  position: relative;
+  height: 0;
+  padding-top: 25px;
+  padding-bottom: 53%; /* 16:9 */
+  margin-bottom: $gutter;
+
+  .lecture__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.lecture__text {
+  margin-bottom: $gutter;
+}
+
+.lecture__quote {
+  display: flex;
+  padding: $gutter;
+  margin-bottom: $gutter;
+  flex-direction: column;
+  background-color: $background-color;
+}
+
+.quote__cite {
+  padding-top: $gutter;
+}
+
+.figure {
+  margin-bottom: $gutter;
+
+  .lecture__image {
+    width: 100%;
+  }
+}
+
+.lecture__heading {
+  margin-top: $gutter;
+  margin-bottom: $gutter;
+  font-family: $font-title;
+}
+
+.lecture__pre {
+  margin-bottom: $gutter;
+}
+
+.lecture__list {
+  margin-bottom: $gutter;
+}
+
+.lecture__litem {
+  margin-bottom: $gutter;
+}
+
+.lecture__footer {
+  display: flex;
+  margin-top: 2*$gutter;
+  margin-bottom: 2*$gutter;
+  flex-direction: column;
+  align-items: center;
+}
+
 .lecture__button {
+  display: flex;
   padding: 0;
   margin: 0;
   font-family: $font-title;
+  font-size: 1em;
+  cursor: pointer;
   background: none;
   border: 0;
+}
+
+.lecture__link {
+  display: flex;
+  margin-top: $gutter;
+  font-family: $font-title;
+  color: #000;
+  text-decoration: none;
 }

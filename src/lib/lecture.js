@@ -10,6 +10,7 @@ export default class Lecture {
     this.headerTitle = document.querySelector('.header__title');
     // this.finishButton = document.querySelector('.lecture__button'); // fyrir storage
     // this.finishButton.addEventListener('click', save); // fyrir storage
+    this.footer = document.querySelector('.lecture__footer');
   }
 
   loadLecture() {
@@ -24,8 +25,6 @@ export default class Lecture {
 
   showLecture(data) {
     empty(this.main);
-    // eslint-disable-next-line no-console
-    console.log(data);
 
     if (data.image) {
       const img = new Image();
@@ -38,6 +37,7 @@ export default class Lecture {
     this.headerTitle.appendChild(document.createTextNode(data.title));
 
     data.content.forEach((item) => {
+      let wrapper;
       let youtube;
       let text;
       let textArr;
@@ -52,9 +52,11 @@ export default class Lecture {
       let pre;
 
       switch (item.type) {
-        case 'youtube': youtube = el('iframe', 'lecure__video');
+        case 'youtube': wrapper = el('div', 'video__wrapper');
+          youtube = el('iframe', 'lecture__video');
           youtube.setAttribute('src', item.data);
-          this.main.appendChild(youtube); break;
+          wrapper.appendChild(youtube);
+          this.main.appendChild(wrapper); break;
 
         case 'text': textArr = item.data.split('\n');
           textArr.forEach((par) => {
@@ -68,7 +70,7 @@ export default class Lecture {
           this.main.appendChild(quote); break;
 
         case 'code': code = el('code', 'lecture__code', item.data);
-          pre = el('pre');
+          pre = el('pre', 'lecture__pre');
           pre.appendChild(code);
           this.main.appendChild(pre); break;
 
@@ -82,7 +84,7 @@ export default class Lecture {
 
         case 'list': list = el('ul', 'lecture__list');
           item.data.forEach((litem) => {
-            const listItem = el('li', '.lecture__litem', litem);
+            const listItem = el('li', 'lecture__litem', litem);
             list.appendChild(listItem);
           });
           this.main.appendChild(list); break;
@@ -93,13 +95,16 @@ export default class Lecture {
         default: console.error('vantar case');
       }
     });
+<<<<<<< HEAD
     const footer = el('footer', 'lecture__footer');
+=======
+
+>>>>>>> f9df9bdfbd472fdf0b14f9ba2c40ad16b028a5fe
     const finish = el('button', 'lecture__button', 'Klára fyrirlestur');
-    footer.appendChild(finish);
+    this.footer.appendChild(finish);
     const index = el('a', 'lecture__link', 'Til baka');
     index.setAttribute('href', 'index.html');
-    footer.appendChild(index);
-    this.main.appendChild(footer);
+    this.footer.appendChild(index);
   }
 
   load() {
