@@ -23,6 +23,7 @@ html { /* stylelint-disable-line */
 main { /* stylelint-disable-line */
   max-width: 1200px;
   margin: 0 auto;
+  transition: background-color 300ms ease-in-out;
 }
 
 img { /* stylelint-disable-line */
@@ -143,10 +144,11 @@ img { /* stylelint-disable-line */
   height: 100%;
   margin-bottom: 20px;
   flex-direction: column;
-}
+  transition: background-color 300ms ease-in-out;
 
-.card:hover {
-  background-color: $hover-color;
+  &:hover {
+    background-color: $hover-color;
+  }
 }
 
 .card:link {
@@ -173,7 +175,6 @@ img { /* stylelint-disable-line */
 .card__text {
   flex: 1;
   padding: 10px;
-  background-color: $background-color;
 }
 
 .card__bottom {
@@ -182,6 +183,9 @@ img { /* stylelint-disable-line */
 
 .card__tickbox {
   display: flex;
+  padding-right: $gutter/2;
+  font-size: 2em;
+  font-weight: bold;
   color: #2d2;
 }
 
@@ -251,14 +255,9 @@ img { /* stylelint-disable-line */
   }
 }
 
-.card:link:hover {
-  background-color: $hover-color;
-}
-
 .card__image {
   display: flex;
   flex: 1;
-  background-color: $background-color;
 }
 
 .card__img {

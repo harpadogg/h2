@@ -22,7 +22,7 @@ export default class Lecture {
       this.finish.textContent = 'Klára fyrirlestur';
       clear(sluggo);
     } else {
-      this.finish.classList.add('finished');
+      this.finish.classList.add(' finished');
       this.finish.textContent = 'Fyrirlestur kláraður';
       save(sluggo);
     }
