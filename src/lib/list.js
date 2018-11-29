@@ -60,12 +60,12 @@ export default class List {
       const divEmpty = el('div', 'card__tickbox');
 
       const finished = load();
-      let ticked;
+      /* let ticked;
       finished.forEach((finish) => {
         ticked = (item.slug === finish) ? 'card__finished' : 'card__finished--hidden';
-      });
+      }); */
 
-      const divFinished = el('div', ticked, '✓');
+      const divFinished = el('div', '', '✓');
 
       divEmpty.appendChild(divFinished);
       divText.appendChild(subtitle);
