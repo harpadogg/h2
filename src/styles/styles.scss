@@ -83,7 +83,7 @@ img { /* stylelint-disable-line */
     height: auto;
     padding: 10px 20px;
     font-family: $font-title;
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: bold;
     background-color: $background-color;
     border-radius: 15px;
@@ -99,7 +99,7 @@ img { /* stylelint-disable-line */
   height: auto;
   padding: 10px 20px;
   font-family: $font-title;
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: bold;
   background-color: #2d2;
   border-radius: 15px;
@@ -245,11 +245,6 @@ img { /* stylelint-disable-line */
   .protection {
     height: 20vh;
   }
-
-  /* .list {
-    margin-right: 0;
-    margin-left: 0;
-  } */
 
   .grid__col {
     width: 33.3333333%;

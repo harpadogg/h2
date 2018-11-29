@@ -123,7 +123,7 @@ export default class Lecture {
     const index = el('a', 'lecture__link', 'Til baka');
     index.setAttribute('href', 'index.html');
     this.footer.appendChild(index);
-    lecFinish.addEventListener('click', this.onClick); // fyrir storage
+    lecFinish.addEventListener('click', this.onClick);
   }
 
   load() {
