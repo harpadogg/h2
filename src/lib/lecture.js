@@ -8,6 +8,8 @@ export default class Lecture {
     this.main = document.querySelector('main');
     this.subtitle = document.querySelector('.header__subtitle');
     this.headerTitle = document.querySelector('.header__title');
+    // this.finishButton = document.querySelector('.lecture__button'); // fyrir storage
+    // this.finishButton.addEventListener('click', save); // fyrir storage
   }
 
   loadLecture() {
@@ -31,7 +33,7 @@ export default class Lecture {
       img.className = 'header__img';
       this.header.appendChild(img);
     }
-    
+
     this.subtitle.appendChild(document.createTextNode(data.category));
     this.headerTitle.appendChild(document.createTextNode(data.title));
 
@@ -91,7 +93,7 @@ export default class Lecture {
         default: console.error('vantar case');
       }
     });
-    const footer = el('footer', 'lecture__footer')
+    const footer = el('footer', 'lecture__footer');
     const finish = el('button', 'lecture__button', 'Klára fyrirlestur');
     footer.appendChild(finish);
     const index = el('a', 'lecture__link', 'Til baka');
@@ -113,14 +115,5 @@ export default class Lecture {
       .catch((e) => {
         console.error(`Villa við sækja fyrirlestra ${e}`);
       });
-
-    const savedData = window.localStorage.getItem(this.keyName);
-
-    if (savedData) {
-      const parsed = JSON.parse(savedData);
-      const date = new Date(parsed.date);
-
-      this.create(parsed.title, date);
-    }
   }
 }
