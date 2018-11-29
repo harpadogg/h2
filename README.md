@@ -53,7 +53,7 @@ Til að keyra verkefni keyrist rétt þarf að keyra `broswer-sync` með `npm ru
 
 ## Slóð á verkefni
 
-Á eftirfarandi slóð má finna keyrslu á verkefninu: [Slóð á verkefnið](https://notendur.hi.is/~ylh1/vefforritun/hopv1/index.html)
+Á eftirfarandi slóð má finna keyrslu á verkefninu: [Slóð á verkefnið](https://notendur.hi.is/~ylh1/vefforritun/h2)
 
 ## Annað
 
