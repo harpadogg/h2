@@ -22,7 +22,7 @@ export default class Lecture {
       this.finish.textContent = 'Klára fyrirlestur';
       clear(sluggo);
     } else {
-      this.finish.classList.add(' finished');
+      this.finish.classList.add('finished');
       this.finish.textContent = 'Fyrirlestur kláraður';
       save(sluggo);
     }
@@ -110,7 +110,7 @@ export default class Lecture {
         default: console.error('vantar case');
       }
     });
-    const finish = el('button', 'lecture__button', 'Klára fyrirlestur')
+    const finish = el('button', 'lecture__button', 'Klára fyrirlestur');
     this.footer.appendChild(finish);
     const index = el('a', 'lecture__link', 'Til baka');
     index.setAttribute('href', 'index.html');

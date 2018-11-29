@@ -61,11 +61,14 @@ export default class List {
 
       const finished = load();
       let ticked;
+      let divFinished = el('div', 'card__finished--hidden', '✓');
+
       finished.forEach((finish) => {
         ticked = (item.slug === finish) ? 'card__finished' : 'card__finished--hidden';
+        if (ticked === 'card__finished') {
+          divFinished = el('div', ticked, '✓');
+        }
       });
-
-      const divFinished = el('div', ticked, '✓');
 
       divEmpty.appendChild(divFinished);
       divText.appendChild(subtitle);
